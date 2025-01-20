@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/fb4f01f65d.js" crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-bg: #080808;
+            --color-primary: #d64b4b;
+            --color-white: #fff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--color-bg);
+            color: var(--color-white);
+        }
+
+        #header {
+            width: 100%;
+            height: 100vh;
+            background-image: url(background_laptop.png);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .container {
+            padding: 10px 10%;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            width: 140px;
+        }
+
+        nav ul li {
+            display: inline-block;
+            list-style: none;
+            margin: 10px 20px;
+        }
+
+        nav ul li a {
+            color: var(--color-white);
+            text-decoration: none;
+            font-size: 18px;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            width: 0;
+            height: 3px;
+            background: var(--color-primary);
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            transition: 0.5s;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .header-text {
+            margin-top: 20%;
+            font-size: 30px;
+        }
+
+        .header-text h1 {
+            font-size: 60px;
+            margin-top: 20px;
+        }
+
+        span {
+            color: var(--color-primary);
+        }
+
+        .logo {
+            font-size: xx-large;
+        }
+
+        /* ---------------about----------------- */
+        #about {
+            padding: 80px 0;
+            color: #ababab;
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .about-col-1 {
+            flex-basis: 35%;
+        }
+
+        .about-col-1 img {
+            width: 100%;
+            border-radius: 15px;
+        }
+
+        .about-col-2 {
+            flex-basis: 60%;
+        }
+
+        .sub-title {
+            font-size: 60px;
+            font-weight: 600;
+            color: var(--color-white);
+        }
+
+        .tab-titles {
+            display: flex;
+            margin: 20px 0 40px;
+        }
+
+        .tab-links {
+            margin-right: 50px;
+            font-size: 18px;
+            font-weight: 500;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .tab-links::after {
+            content: '';
+            width: 0;
+            height: 3px;
+            background: var(--color-primary);
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            transition: 0.5s;
+        }
+
+        .tab-links.active-link::after {
+            width: 50%;
+        }
+
+        .tab-contents ul li {
+            list-style: none;
+            margin: 10px 0;
+        }
+
+        .tab-contents ul li span {
+            color: #db4a62;
+            font-size: 14px;
+        }
+
+        .tab-contents {
+            display: none;
+        }
+
+        .tab-contents.active-tab {
+            display: block;
+        }
+
+        /* ---------------skills----------------- */
+        #my-skills {
+            padding: 30px 0;
+        }
+
+        .my-skills-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-gap: 40px;
+            margin-top: 50px;
+        }
+
+        .my-skills-list div {
+            background: var(--color-bg);
+            padding: 40px;
+            font-size: 13px;
+            font-weight: 300;
+            border-radius: 10px;
+            transition: background 0.5s, transform 0.5s;
+        }
+
+        .my-skills-list div i {
+            font-size: 50px;
+            margin-bottom: 30px;
+        }
+
+        .my-skills-list div h2 {
+            font-size: 30px;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .my-skills-list div a {
+            text-decoration: none;
+            color: var(--color-white);
+            font-size: 12px;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+        .my-skills-list div:hover {
+            background: var(--color-primary);
+            transform: translateY(-10px);
+        }
+
+        /* ---------------portfolio----------------- */
+        #portfolio {
+            padding: 50px 0;
+        }
+
+        .work-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-gap: 40px;
+            margin-top: 50px;
+        }
+
+        .work {
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .work img {
+            width: 100%;
+            border-radius: 10px;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .layer {
+            width: 100%;
+            height: 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), var(--color-primary));
+            border-radius: 10px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 0.40px;
+            text-align: center;
+            font-size: 14px;
+            transition: height 0.5s;
+        }
+
+        .layer h3 {
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .layer a {
+            margin-top: 20px;
+            color: var(--color-primary);
+            text-decoration: none;
+            font-size: 18px;
+            line-height: 60px;
+            background: var(--color-white);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-align: center;
+        }
+
+        .work:hover img {
+            transform: scale(1.1);
+        }
+
+        .work:hover .layer {
+            height: 100%;
+        }
+
+        .btn {
+            display: block;
+            margin: 50px auto;
+            width: fit-content;
+            border: 1px solid var(--color-primary);
+            padding: 14px 50px;
+            border-radius: 6px;
+            text-decoration: none;
+            color: var(--color-white);
+            transition: background 0.5s;
+        }
+
+        .btn:hover {
+            background: var(--color-primary);
+        }
+
+        /* ---------------contact----------------- */
+        .contact-left {
+            flex-basis: 35%;
+        }
+
+        .contact-right {
+            flex-basis: 60%;
+        }
+
+        .contact-left p {
+            margin-top: 30px;
+        }
+
+        .contact-left p i {
+            color: var(--color-primary);
+            margin-right: 15px;
+            font-size: 25px;
+        }
+
+        .social-icons {
+            margin-top: 30px;
+        }
+
+        .social-icons a {
+            text-decoration: none;
+            font-size: 30px;
+            margin-right: 15px;
+            color: #ababab;
+            display: inline-block;
+            transition: transform 0.5s;
+        }
+
+        .social-icons a:hover {
+            color: var(--color-primary);
+            transform: translateY(-5px);
+        }
+
+        .btn.btn2 {
+            display: inline-block;
+            background: var(--color-primary);
+        }
+
+        .contact-right form {
+            width: 100%;
+        }
+
+        form input,
+        form textarea {
+            width: 100%;
+            border: 0;
+            outline: none;
+            background: #262626;
+            padding: 15px;
+            margin: 15px 0;
+            color: var(--color-white);
+            font-size: 18px;
+            border-radius: 6px;
+        }
+
+        form .btn2 {
+            padding: 14px 60px;
+            font-size: 18px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        .copyright {
+            width: 100%;
+            text-align: center;
+            padding: 25px 0;
+            background: var(--color-bg);
+            font-weight: 300;
+            margin-top: 20px;
+        }
+
+        .copyright i {
+            color: var(--color-primary);
+        }
+
+        /* ---------------css for small screens----------------- */
+        nav .fa-solid {
+            display: none;
+        }
+
+        @media only screen and (max-width: 600px) {
+            #header {
+                background-image: url(background_android.png);
+            }
+
+            .header-text {
+                margin-top: 100%;
+                font-size: 16px;
+            }
+
+            .header-text h1 {
+                font-size: 30px;
+            }
+
+            nav .fa-solid {
+                display: block;
+                font-size: 25px;
+            }
+
+            nav ul {
+                background: var(--color-primary);
+                position: fixed;
+                top: 0;
+                right: -200px;
+                width: 200px;
+                height: 100vh;
+                padding-top: 50px;
+                z-index: 2;
+                transition: right 0.5s;
+            }
+
+            nav ul li {
+                display: block;
+                margin: 25px;
+            }
+
+            nav ul .fas {
+                position: absolute;
+                top: 25px;
+                left: 25px;
+                cursor: pointer;
+            }
+
+            .sub-title {
+                font-size: 40px;
+            }
+
+            .about-col-1,
+            .about-col-2 {
+                flex-basis: 100%;
+            }
+
+            .about-col-1 {
+                margin-bottom: 30px;
+            }
+
+            .about-col-2 {
+                font-size: 14px;
+            }
+
+            .tab-links {
+                font-size: 16px;
+                margin-right: 20px;
+            }
+
+            .contact-left,
+            .contact-right {
+                flex-basis: 100%;
+            }
+
+            .copyright {
+                font-size: 14px;
+            }
+        }
+
+        #msg {
+            color: #c54b55;
+            margin-top: -40px;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <div class="container">
+            <nav>
+                <div class="logo"><span>Uday </span>Kumar</div>
+                <ul id="sidemenu">
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#my-skills">My Skills</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="example.html">Courses</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
+                </ul>
+                <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+            </nav>
+            <div class="header-text">
+                <p>Web Developer | Graphic Designer</p>
+                <h1>Hi, I'm <span>Uday Kumar Bathula</span><br>from Hyderabad, India</h1>
+            </div>
+        </div>
+    </div>
+    <!-- --------------------------------about---------------------------------------- -->
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="uday.png">
+                </div>
+                <div class="about-col-2">
+                    <h1 class="sub-title">About Me</h1>
+                    <p>Hello, I'm Uday Kumar Bathula, a Computer Science Engineering (CSE) student at GITAM Deemed University, Hyderabad. A highly motivated and skilled student with a strong foundation in Web Development, Data Science, Python, Graphic Design, and PL/SQL Development. I am dedicated to delivering innovative and efficient solutions, with a focus on creating meaningful digital experiences. My passion lies in merging creativity with technical expertise to solve complex problems. Eager to contribute to a collaborative team environment, I am committed to continuous learning and professional growth.</p>
+
+                    <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab('Certifications')">Certifications</p>
+                        <p class="tab-links" onclick="opentab('Internship')">Internships</p>
+                        <p class="tab-links" onclick="opentab('Education')">Education</p>
+                    </div>
+                    <div class="tab-contents active-tab" id="Certifications">
+                        <ul>
+                            <!-- IBM Certification -->
+                            <li>
+                                <a href="https://www.credly.com/badges/477fb733-0c71-4b02-9dac-e747b8aaa8b9/linked_in_profile" target="_blank" class="no-style">
+                                    <span>IBM</span><br>Web Development Fundamentals
+                                </a>
+                            </li>
+                            <!-- AWS Certification -->
+                            <li>
+                                <a href="https://www.coursera.org/account/accomplishments/verify/A3RJQAKJWS6K" target="_blank" class="no-style">
+                                    <span>Amazon Web Services (AWS)</span><br>Introduction to IT & AWS Cloud
+                                </a>
+                            </li>
+                            <!-- Altair Certification -->
+                            <li>
+                                <a href="https://openbadgepassport.com/app/badge/info/738130" target="_blank" class="no-style">
+                                    <span>Altair</span><br>Machine Learning and Data Engineering Master Certifications
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <style>
+                        .no-style {
+                            text-decoration: none;
+                            color: inherit;
+                        }           
+                        .no-style:hover {
+                            cursor: pointer;
+                        }
+                    </style>                    
+                    <div class="tab-contents" id="Internship">
+                        <ul>
+                            <li><span>ALTAIR</span><p>Web Development Intern [Apr 2024 - Jun 2024]</p><br></li>
+                            <li><span>IBM </span><br>Front-End Web Development Intern [Jun 2024 - Aug 2024] </li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="Education">
+                        <ul>
+                            <li><span>UG [ 2021-25 ]</span><br>B.Tech in Computer Science and Engineering at GITAM Deemed University, Hyderabad ( CGPA: 8.79 )</li>
+                            <li><span>Intermediate [ 2019-21 ]</span><br>Deeksha Junior College, Hyderabad ( Grade:94% )</li>
+                            <li><span>Secondary Education [ 2016- 2019 ]</span><br>St. Peter's High School, Sangareddy ( GPA:9.8 )</li>                     
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ----------------------------skills----------------------------------- -->
+    <div id="my-skills">
+        <div class="container">
+            <h1 class="sub-title">My Skills</h1>
+            <div class="my-skills-list">
+                <div>
+                    <i class="fa-solid fa-person"></i>
+                    <h2>Soft Skills</h2>
+                    <p>Problem-Solving <br> Adaptability<br> Creativity<br> Leadership</p>
+                </div>
+                <div>
+                    <i class="fa-solid fa-dice"></i>
+                    <h2>Programming Languages</h2>
+                    <p>C<br>Python<br>Java<br>SQL</p>
+                </div>
+                <div>
+                    <i class="fa-solid fa-code"></i>
+                    <h2>Web Development</h2>
+                    <p>HTML<br>CSS<br>JavaScript<br>React</p>
+                </div>
+                <div>
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <h2>Content Creation </h2>
+                    <p>Graphic Design<br>Photography<br>Social Media Marketing<br>Public Relations</p>
+                </div>         
+            </div>
+        </div>
+    </div>
+
+    <!-- ---------------------------portfolio-------------------------------- -->
+    <div id="portfolio">
+        <div class="container">
+            <h1 class="sub-title">My Work</h1>
+            <div class="work-list">
+                <div class="work">
+                    <img src="work-1.png">
+                    <div class="layer">
+                        <h3>Career Connect</h3>
+                        <p> HTML ,CSS & Js </p>
+                        <a href="https://github.com/UdayKumar6410/IBMCareerConnect" target="_blank"><i class="fa-solid fa-link"></i></a>
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="work-2.png">
+                    <div class="layer">
+                        <h3>Weather App</h3>
+                        <p>JavaScript</p>
+                        <a href="https://github.com/UdayKumar6410/WeatherForecast" target="_blank"><i class="fa-solid fa-link"></i></a>
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="work-3.png">
+                    <div class="layer">
+                        <h3>JDBC Using Sevlets</h3>
+                        <p>DataBase Connectivity</p>
+                        <a href="https://github.com/UdayKumar6410/JDBC-Using-Servlets" target="_blank"><i class="fa-solid fa-link"></i></a>
+                    </div>
+                </div>
+            </div>
+            <a href="https://github.com/UdayKumar6410" target="_blank" class="btn">See more</a>
+        </div>
+    </div>
+    <!-- ---------------------------contact-------------------------------- -->
+    <div id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="contact-left">
+                    <h1 class="sub-title">Contact Me</h1>
+                    <p><i class="fa-solid fa-paper-plane"></i>udaykumar6410@gmail.com</p>
+                    <div class="social-icons">
+                        <a href="https://github.com/UdayKumar6410" target="_blank"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/udaykumarbathula/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/udaykumarrb/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                    <a href="Resume_Uday.pdf" download class="btn btn2">Download CV</a>
+                </div>
+
+                <div class="contact-right">
+                    <form name="submit-to-google-sheet">
+                        <input type="text" name="Name" placeholder="Your Name" required>
+                        <input type="email" name="Email" placeholder="Your Email" required>
+                        <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                        <button type="submit" class="btn btn2">Submit</button>
+                    </form>
+                    <span id="msg"></span>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Copyright @ Uday Kumar Bathula. <i class="fa-solid fa-heart"></i></p>
+        </div>
+    </div>
+    <script>
+        function opentab(tabName) {
+            // Hide all tab contents
+            const tabs = document.querySelectorAll('.tab-contents');
+            tabs.forEach(tab => {
+                tab.classList.remove('active-tab');
+            });
+
+            // Remove active link from all tab links
+            const tabLinks = document.querySelectorAll('.tab-links');
+            tabLinks.forEach(link => {
+                link.classList.remove('active-link');
+            });
+
+            // Show the selected tab content
+            document.getElementById(tabName).classList.add('active-tab');
+            // Add active link to the clicked tab link
+            event.target.classList.add('active-link');
+        }
+
+        function openmenu() {
+            document.getElementById('sidemenu').style.right = '0';
+        }
+
+        function closemenu() {
+            document.getElementById('sidemenu').style.right = '-200px';
+        }
+    </script>
+</body>
+</html>

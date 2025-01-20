@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Grades</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 10px;
+        }
+        #header {
+            width: 100%;
+            height: 100vh;
+            background-image: url(background_laptop.png);
+            background-size: cover;
+            background-position: center;
+        }
+        h1 {
+            text-align: center;
+            color: #f3445b;
+        }
+        .logo {
+            display: block;
+            margin: 0 auto;
+            width: 200px; /* Adjust the size as needed */
+            height: auto;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .category {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #308b3f;
+            color: white;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .total {
+            font-weight: bold;
+            margin-top: 20px;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img src="gitam.png" alt="Logo" class="logo">
+        <h1>My Courses & Grades</h1>
+        <!-- Aptitude & Communication Subjects -->
+        <div class="category">Aptitude & Communication</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Course Name</th>
+                    <th>Grade</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Advanced Communication Skills in English</td><td>A+</td></tr>
+                <tr><td>Communication Skills in English</td><td>A</td></tr>
+                <tr><td>Communication Skills in English-Beginners</td><td>S</td></tr>
+                <tr><td>Emotional Intelligence and Reasoning Skills</td><td>A</td></tr>
+                <tr><td>Leadership Skills and Quantitative Aptitude (Softskills 2)</td><td>O</td></tr>
+                <tr><td>Practicing Verbal Ability and Quantitative Aptitude</td><td>O</td></tr>
+                <tr><td>Preparation for Campus Placement 1(Soft skills 5A)</td><td>A+</td></tr>
+                <tr><td>Preparation For Campus Placement - 2</td><td>A+</td></tr>
+                <tr><td>Verbal Ability and Quantitative Aptitude (Soft Skills 3)</td><td>O</td></tr>
+            </tbody>
+        </table>       
+        <!-- Coding Subjects -->
+        <div class="category">Coding</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Course Name</th>
+                    <th>Grade</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Data Structures</td><td>O</td></tr>
+                <tr><td>Programming Languages</td><td>O</td></tr>
+                <tr><td>Programming with Python</td><td>O</td></tr>
+                <tr><td>Problem Solving and Programming in C</td><td>A</td></tr>
+                <tr><td>Object Oriented Programming with Java</td><td>O</td></tr>
+            </tbody>
+        </table>
+        <!-- PC Subjects -->
+        <div class="category">Program Core</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Course Name</th>
+                    <th>Grade</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Agile Software Development</td><td>O</td></tr>
+                <tr><td>Artificial Intelligence</td><td>A+</td></tr>
+                <tr><td>Artificial Intelligence Applications</td><td>O</td></tr>
+                <tr><td>Compiler Design</td><td>A</td></tr>
+                <tr><td>Computer Engineering Workshop</td><td>O</td></tr>
+                <tr><td>Computer Organization and Architecture</td><td>A</td></tr>
+                <tr><td>Computer Networks</td><td>O</td></tr>
+                <tr><td>Cryptography and Network Security</td><td>O</td></tr>
+                <tr><td>Data Communications</td><td>B+</td></tr>
+                <tr><td>Database Management Systems</td><td>A</td></tr>
+                <tr><td>Deep Learning</td><td>A+</td></tr>
+                <tr><td>Design and Analysis of Algorithms</td><td>A</td></tr>
+                <tr><td>Digital Logic Circuits</td><td>B+</td></tr>
+                <tr><td>Engineering Visualization and Product Realization</td><td>A+</td></tr>
+                <tr><td>Formal Languages and Automata Theory</td><td>O</td></tr>
+                <tr><td>Introduction to Data Science</td><td>O</td></tr>
+                <tr><td>Operating Systems</td><td>A</td></tr>
+                <tr><td>Software Engineering</td><td>O</td></tr>
+                <tr><td>Web Application Development and Software Frameworks</td><td>A+</td></tr>
+                <tr><td>Workshop</td><td>O</td></tr>
+            </tbody>
+        </table>      
+        <!-- Open Electives -->
+        <div class="category">Open Electives</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Course Name</th>
+                    <th>Grade</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Audio Production</td><td>A</td></tr>
+                <tr><td>Fundamentals of Graphic Design</td><td>O</td></tr>
+                <tr><td>Introduction to Visual Communication</td><td>A+</td></tr>
+                <tr><td>Photography</td><td>A</td></tr>
+                <tr><td>Renewable Energy</td><td>A</td></tr>
+                <tr><td>Visual Arts</td><td>O</td></tr>
+            </tbody>
+        </table>          
+        <!-- Business -->
+        <div class="category">General Studies</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Course Name</th>
+                    <th>Grade</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Design Thinking</td><td>O</td></tr>
+                <tr><td>E-Commerce</td><td>O</td></tr>
+                <tr><td>Gandhi for the 21st Century</td><td>S</td></tr>
+                <tr><td>Human Resource Management</td><td>O</td></tr>
+                <tr><td>Health and Well Being</td><td>S</td></tr>
+                <tr><td>Environmental Studies</td><td>S</td></tr>
+                <tr><td>Indian Constitution and History</td><td>S</td></tr>
+                <tr><td>IT Productivity Tools</td><td>S</td></tr>
+                <tr><td>Personal Financial Planning</td><td>S</td></tr>
+                <tr><td>Venture Development</td><td>O</td></tr>
+                <tr><td>Universal Human Values 2: Understanding Harmony</td><td>S</td></tr>
+            </tbody>
+        </table>
+        <!-- Project Related Subjects -->
+        <div class="category">Internship & Projects </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Course Name</th>
+                    <th>Grade</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Capstone Project Introduction</td><td>O</td></tr>
+                <tr><td>Project Exhibition 1</td><td>S</td></tr>
+                <tr><td>Internship 1</td><td>S</td></tr>
+                <tr><td>Internship 2</td><td>O</td></tr>
+            </tbody>
+        </table>        
+  
+        <!-- Mathematics -->
+        <div class="category">Mathematics Basket</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Course Name</th>
+                    <th>Grade</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Discrete Mathematics</td><td>B+</td></tr>
+                <tr><td>Graph Theory</td><td>B+</td></tr>
+                <tr><td>Linear Algebra</td><td>B+</td></tr>
+                <tr><td>Number Theory</td><td>B+</td></tr>
+                <tr><td>Single Variable Calculus</td><td>B+</td></tr>
+                <tr><td>Several Variable Calculus</td><td>A</td></tr>
+                <tr><td>Probability and Statistics</td><td>A</td></tr>
+            </tbody>
+        </table>      
+        <!-- OE -->
+        <div class="category">Non Core </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Course Name</th>
+                    <th>Grade</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Basic Electrical and Electronics Engineering</td><td>B</td></tr>
+                <tr><td>Chemistry</td><td>A+</td></tr>
+                <tr><td>Physics</td><td>A</td></tr>
+                <tr><td>Principles of Quantum Mechanics</td><td>B+</td></tr>
+
+            </tbody>
+        </table>           
+
+        <div class="total">Total Courses: 66</div>
+        <div class="total">Current CGPA: 8.79</div>
+    </div>
+
+</body>
+</html>
